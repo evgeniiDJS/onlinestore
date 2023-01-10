@@ -2,14 +2,16 @@ import React from 'react';
 
 interface ModalProps {
     children: React.ReactNode,
-    title: string
+    title: string,
+    onClose: () => void
 }
 
 
-export const Modal = ({ children, title } : ModalProps) => {
+export const Modal = ({ children, title, onClose } : ModalProps) => {
     return (
        <>
             <div
+                onClick={onClose}
                 className='w-[100%] fixed bg-black/50 top-0 rigth-0 left-0 bottom-0'
             />
             <div 

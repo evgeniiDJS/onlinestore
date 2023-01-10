@@ -2,10 +2,12 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { IProducts } from '../module';
 
+interface createProductProps {
+    onCreate : (product: IProducts) => void
+}
 
 
-
-export const CreateProduct = () => {
+export const CreateProduct = ({ onCreate } : createProductProps) => {
     const [value, setValue] = useState('');
     const [error, setError] = useState(false);
 
@@ -32,6 +34,7 @@ export const CreateProduct = () => {
         productData.title = value;
         const response = await axios.post<IProducts>('https://fakestoreapi.com/products', productData);
 
+        onCreate(response.data);
     }
 
    
@@ -47,7 +50,7 @@ export const CreateProduct = () => {
                 onChange={(event) => setValue(event.target.value)}
             />
 
-            {error && <p>Error Valid</p>}
+            {error && <p className="text-center text-red-600">Error Valid</p>}
 
             <button className='py-2 px-4 border bg-yellow-400 hover:text-white' type='submit'>Create</button>
         </form>
