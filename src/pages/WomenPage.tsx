@@ -11,9 +11,9 @@ import { ModalContext } from "../context/ModalContext";
 
 
 
-export const ProductsPage = () => {
+export const WomenPage = () => {
     const { error, loading, product, addProducts } = useProducts();
-    const { modal, close } = useContext(ModalContext)
+    const { modal, close } = useContext(ModalContext);
 
   const createHandler = (product:IProducts) => {
     close();
