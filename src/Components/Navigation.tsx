@@ -31,10 +31,10 @@ export const Navigation = () => {
               <Link className='px-2 text-red-700' to="/sale">Sale</Link>
               <Link className='px-2' to="/stocks">Stocks</Link>
               <button 
-              className="px-2 relative bottom-3 rigth-3 bg-red-700 text-white text-1xl px-1 py-2"
+              className="px-2 relative bottom-3 rigth-3 bg-red-700 text-white text-lg px-1 py-2"
               onClick={open}
               onMouseEnter={close}
-              >Create new product</button>
+              >You can add your product</button>
           </div>
         </nav>
       </>

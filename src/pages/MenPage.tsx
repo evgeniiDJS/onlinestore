@@ -1,12 +1,22 @@
+import React, { useContext } from 'react';
+import { IProducts } from "../module";
+import { ModalContext } from "../context/ModalContext";
 import { useProducts } from "../hooks/products";
+import { Modal } from "../Components/Modal";
+import { CreateProduct } from "../Components/CreateProduct";
 import { Loading } from "../Components/Loading";
 import { Error } from "../Components/Error";
 import { Products } from "../Components/Products";
 
 
 export const MenPage = () => {
+  const { error, loading, product, addProducts } = useProducts();
+  const { modal, close } = useContext(ModalContext);
 
-  const { error, loading, product } = useProducts();
+  const createHandler = (product:IProducts) => {
+    close();
+    addProducts(product)
+  }
 
 
   return (
@@ -17,6 +27,12 @@ export const MenPage = () => {
           { loading && <Loading /> }
           { product && <Error error={error} /> }
           { product.map((data) => <Products product={data} key={data.id} />) }
+
+          
+          { modal && 
+            <Modal title="Create new product" onClose={ close }>
+              <CreateProduct onCreate={createHandler} />
+            </Modal> }
       </div>
     </div>
   )
