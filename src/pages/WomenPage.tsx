@@ -34,7 +34,6 @@ export const WomenPage = () => {
           <CreateProduct onCreate={createHandler} />
         </Modal> }
 
-       
     </div>
   </div>
  )

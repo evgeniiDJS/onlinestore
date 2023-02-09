@@ -14,7 +14,7 @@ export const Products = ({ product }: ProductProps) => {
 
     return (
         <div 
-            className='border-4 border-blue-200 shadow-2xl subpixel-antialiased w-[180px] bg-neutral-300 py-4 my-4 mx-4 rounded-xl flex flex-col items-center'
+            className='border-4 border-blue-200 shadow-2xl subpixel-antialiased w-[180px] bg-neutral-300 py-4 my-4 mx-4 rounded-xl lg:flex flex-col items-center'
         >
         <img className='block h-[150px] w-[150px] border' src={product.image} alt={product.title} />
         <p className='block h-[150px] w-[150px] py-4 text-lime-800 text-lg italic'>{product.title}</p>
